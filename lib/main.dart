@@ -1,30 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:movie_land/injection_dependencies.dart';
+import 'package:movie_land/presentation/ui/screens/movies_screen.dart';
+import 'package:movie_land/presentation/view_models/movies_view_model.dart';
+import 'package:provider/provider.dart';
 
-void main() {
-  runApp(const MovieLand());
-}
-
-class MovieLand extends StatefulWidget {
-  const MovieLand({super.key});
-
-  @override
-  State<MovieLand> createState() => _MovieLandState();
-}
-
-class _MovieLandState extends State<MovieLand> {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'The land.',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Color(0xFF06223d)),
-        useMaterial3: true,
-      ),
-      home: Scaffold(
-        body: Center(
-          child: Text("MovieLand!"),
-        ),
-      ),
-    );
-  }
+void main() async {
+  await initDependencies();
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => MoviesViewModel()),
+      ],
+      child: const MoviesScreen(),
+    ),
+  );
 }

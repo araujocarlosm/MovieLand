@@ -9,3 +9,8 @@ extension MoviesUtils on MoviesResponse {
 extension MovieModelUtils on MovieModel {
   Movie get toMovie => Movie.fromJson(toJson());
 }
+
+extension MovieUtils on Movie {
+  String get poster =>
+      'https://media.themoviedb.org/t/p/w220_and_h330_face/$posterPath';
+}
