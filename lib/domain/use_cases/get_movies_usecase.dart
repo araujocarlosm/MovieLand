@@ -8,7 +8,7 @@ class GetMoviesUseCase implements UseCase<List<Movie>, void> {
   GetMoviesUseCase(this._moviesRepository);
 
   @override
-  Future<List<Movie>> execute(void params) {
+  Future<List<Movie>> execute({void params}) {
     return _moviesRepository.fetchMovies();
   }
 }

@@ -8,7 +8,7 @@ class GetMovieDetailsUseCase implements UseCase<MovieDetails, String> {
   GetMovieDetailsUseCase(this._moviesRepository);
 
   @override
-  Future<MovieDetails> execute(String params) {
-    return _moviesRepository.getMovieDetails(params);
+  Future<MovieDetails> execute({String? params}) {
+    return _moviesRepository.getMovieDetails(params ?? '');
   }
 }
