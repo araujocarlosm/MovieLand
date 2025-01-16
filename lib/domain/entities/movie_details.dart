@@ -1,6 +1,11 @@
+import 'package:hive/hive.dart';
 import 'package:movie_land/domain/entities/movie.dart';
 
+part 'movie_details.g.dart';
+
+@HiveType(typeId: 1)
 class MovieDetails extends Movie {
+  @HiveField(5)
   List<String> genres;
 
   MovieDetails(

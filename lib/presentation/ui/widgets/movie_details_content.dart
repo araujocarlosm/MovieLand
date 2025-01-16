@@ -24,7 +24,7 @@ class _MovieDetailsContentState extends State<MovieDetailsContent> {
   }
 
   void getMovieDetails() {
-    context.read<MovieDetailsViewModel>().getMovieDetails(widget.movie);
+    context.read<MovieDetailsViewModel>().validateMovieDetails(widget.movie);
   }
 
   @override
